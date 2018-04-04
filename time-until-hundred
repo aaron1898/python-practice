@@ -1,0 +1,20 @@
+def get_name():
+	name = raw_input("Please enter your name: ")
+	return name
+
+def get_age():
+	age = int(raw_input("Please enter your age: "))
+	return age
+
+def calculate_years(x):
+	time_until_hundred = 100 - x
+	return time_until_hundred
+
+def time_lapse(a, b):
+	print "Hello %s, you will be 100 in %d years" % (a, b)
+
+
+name = get_name()
+age = get_age()
+time = calculate_years(age)
+time_lapse(name, time)
