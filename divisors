@@ -1,0 +1,17 @@
+import time
+
+number = int(raw_input("Please eneter a number: "))
+
+print "Please wait while I calcuate all divisors of the number you entered"
+
+time.sleep(5)
+
+numbers = list(range(1, (number-1)))
+
+divisors = []
+
+for x in numbers:
+	if number % x ==0:
+		divisors.append(x)
+
+print divisors
