@@ -1,0 +1,12 @@
+def get_number():
+	number = int(raw_input("Enter a number: "))
+	return number
+
+def check_number(x):
+	if x % 2 == 0:
+		print "This number is even"
+	else:
+		print "This number is odd"
+
+number = get_number()
+check_number(number)
