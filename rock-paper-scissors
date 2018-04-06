@@ -1,0 +1,82 @@
+import random
+import time
+
+def get_player_choice():
+	choose = True
+	while choose:
+		choices = ["ROCK", "PAPER", "SCISSORS"]
+		throw = raw_input("Pick either Rock, Paper, or Scissors \n")
+		throw = throw.upper()
+		if throw not in choices:
+			print "That is not valid, pick again"
+			choose = True
+		else:
+			choose = False
+	return throw
+
+def create_comp_choice():
+	throw = ""
+	a = random.randint(1,3)
+	if a == 1:
+		throw = "ROCK"
+	elif a == 2:
+		throw = "PAPER"
+	elif a == 3:
+		throw = "SCISSORS"
+	return throw
+
+def play_game(player, computer):
+	game = True 
+	while game:
+		if player == "ROCK" and computer == "SCISSORS":
+			print player
+			print computer
+			time.sleep(1)
+			outcome = "You win!"
+			print outcome
+		elif player == "SCISSORS" and computer == "PAPER":
+			print player
+			print computer
+			time.sleep(1)
+			outcome = "You win!"
+			print outcome
+		elif player == "PAPER" and computer == "ROCK":
+			print player
+			print computer
+			time.sleep(1)
+			outcome = "You win!"
+			print outcome
+		elif player == computer:
+			print player
+			print computer
+			time.sleep(1)
+			outcome = "It's a tie!"
+			print outcome
+		else:
+			print player
+			print computer
+			time.sleep(1)
+			outcome = "You lose!"
+			print outcome
+		if outcome == "You win!" or outcome == "You lose!" or outcome == "It's a tie!":
+			again = True
+			while again:
+				play = ["Y", "N"]
+				another = raw_input("Would you like to play again? Y/N: ")
+				another = another.upper()
+				if another not in play:
+					print "I accept Y or N. Try again"
+				else:
+					again = False
+			if another == "Y":
+				player = get_player_choice()
+				computer = create_comp_choice()
+				play_game(player, computer)
+			elif another == "N":
+				game = False
+				
+	return 0
+
+player = get_player_choice()
+computer = create_comp_choice()
+play_game(player, computer)
